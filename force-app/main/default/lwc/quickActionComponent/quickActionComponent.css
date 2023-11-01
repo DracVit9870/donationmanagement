@@ -1,0 +1,11 @@
+.parent{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+}
+.child{
+    width: 300px;
+    border: slds-box;
+}

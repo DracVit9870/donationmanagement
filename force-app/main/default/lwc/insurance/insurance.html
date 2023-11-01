@@ -1,0 +1,293 @@
+<template>
+    <div>
+        <lightning-card class="hide-title">
+        <div class="Background">
+            <template if:true={marqueShow}>
+                <marquee width="60%" direction="left" height="100px">
+                    <font size="+3">We proudly provide comprehensive insurance solution..</font>
+                    </marquee>
+            </template>
+            <div class="slds-float_right" style="height:25rem">
+                <div class="withForLoginButoon" >
+                    <template if:true={LoginFirstButtonShow}>
+                        <lightning-button class="slds-float_right slds-p-around_medium" variant="brand"  label="Login" onclick={LoginFirstButton}></lightning-button>
+                    </template>
+                </div>
+            </div>
+            <template if:true={LogoutButtonShow}>
+                <lightning-button class="slds-float_right slds-p-around_medium" variant="destructive"  label="Logout" onclick={LogoutButton}></lightning-button>
+            </template>
+
+            <br/>
+            <template if:true={createPolicyRecordButton}>
+                <lightning-button class="slds-float_right slds-p-around_medium" variant="brand"  label="Policy Holder Creation" onclick={createPolicyRecordHandler}></lightning-button>
+            </template>
+            <template if:true={createPolicyRecord}>
+                <c-insurance-create-record-policy></c-insurance-create-record-policy>
+            </template>
+
+        <template if:true={FirstHomehederBodyshow}>
+                    <div class="slds-float_left">
+                        <div class="withForLoginButoon" >
+                            <div class="slds-m-around_medium">
+                                <lightning-avatar size="large" src={support}></lightning-avatar><br/>
+                                <p><a href="tel:+4733378901">+4733378901</a></p>
+                            </div> 
+                        </div>
+                    </div>
+                
+                <div class="parent">
+                    <div class="child">
+                        <div class="dropdown">
+                            <button class="dropbtn">Dropdown</button>
+                                <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                        </div>
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="dropdown">
+                        <button class="dropbtn">Dropdown</button>
+                        <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                        </div>
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="dropdown">
+                        <button class="dropbtn">Dropdown</button>
+                        <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                        </div>
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="dropdown">
+                        <button class="dropbtn">Dropdown</button>
+                        <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <!--<div class="slds-card cardsize">
+            <lightning-card>
+                <c-carousel-image-lwc></c-carousel-image-lwc>
+            </lightning-card>
+        </div>-->
+        <div >
+            <c-carousel-image-lwc></c-carousel-image-lwc>
+        </div>
+        
+        
+        
+        <!-- for hom bottom from above -->
+        <template if:true={TabsetShow}>
+        <lightning-tabset>
+    
+            <template if:true={HomeShow}>
+                <lightning-tab label="Home">
+                </lightning-tab>
+            </template>
+            
+            <template if:true={AdminShow}>
+                <lightning-tab label="Admin" title="2nd tab extended title">
+
+                    <template if:true={fourButtonShow}>    
+        <c-admi-four-buttons></c-admi-four-buttons>
+                    </template>
+
+                </lightning-tab>
+            </template>
+            
+            <template if:true={PolicyHolderShow}>
+                <lightning-tab label="Policy Holder">
+                    <c-policy-holder-detail></c-policy-holder-detail>
+                   
+                </lightning-tab>
+            </template>
+            
+            <template if:true={AgentShow}>
+                <lightning-tab label="Agent">
+                    <c-agent-relatedpolicy></c-agent-relatedpolicy>
+                    
+                </lightning-tab>
+            </template>
+            
+    
+            <template if:true={PaymentShow}>
+                <lightning-tab label="Payment">
+                    <c-payment-record></c-payment-record>
+            </lightning-tab>
+            </template>
+            
+            
+        </lightning-tabset>
+        </template>
+        
+    
+     <!-- FOR POPUP -->
+        
+       <!-- modal start -->      
+       <template if:true={isShowModal}>
+    
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+        
+          <!-- modal body start -->
+          <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+            <lightning-combobox name="selectUser" label="Select User" value={value} placeholder="Select the User" options={options} onchange={handleChange}></lightning-combobox>
+            <lightning-input  label="Username" onchange={handleEmailChange}></lightning-input>
+            <lightning-input type="Password"  label="Password" onchange={handleMobileChange}> </lightning-input>
+        </div>
+        
+          <!-- modal footer start-->
+          <footer class="slds-modal__footer">
+             <button class="slds-button slds-button_neutral" onclick={cancelButtonHandler}>Cancel</button>
+             <button class="slds-button slds-button_neutral" onclick={LoginHandler}>Login</button>
+        
+          </footer>
+        
+        </div> 
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+        <!-- modal end -->
+             <!-- FOR POPUP -->
+    </div>
+
+
+    <template if:true={bottomshow}>
+        <div class="footerrrr">
+            <div class="slds-var-p-around_large">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <div class="open-list">Product Links</div>
+                        <ul class="footer-list">
+                            <li>Buy Online</li><br>
+                            <li>Life Insurance</li><br>
+                            <li>1 Crore Term Insurance</li><br>
+                            <li>Unit Linked Insurance Plans (ULIPs)
+                                <ul class="inner-footer">
+                                    <li>Pru Signature</li>
+                                    <li>Pru LifeTime Classic</li>
+                                    <li>Pru1 Wealth</li>
+                                </ul>
+                            </li><br>
+                            <li>Guaranteed Return Plans
+                                <ul class="inner-footer">
+                                    <li>Pru Guaranteed Income For</li>
+                                    <li>Tomorrow (Long-term) (New)</li>
+                                    <li>ICICI Pru Guaranteed Income For Tomorrow</li>
+                                    <li>ICICI Pru Assured Savings Insurance Plan</li>
+                                </ul>
+                            </li><br>
+                            <li>Health Insurance Plans
+                                <ul class="inner-footer">
+                                    <li>Pru Heart / Cancer Protect</li>
+                                </ul>
+                            </li><br>
+                            <li>What is Term Insurance?</li><br>
+                            <li>What is Health Insurance?</li><br>
+                            <li>Compare Term Insurance</li><br>
+                            <li>Whole Life Insurance</li>
+                        </ul>
+                    </div>
+                    <div class="slds-col">
+                        <div class="open-list">Customer Service</div>
+                        <ul class="footer-list">
+                            <li>Premium Payment
+                                <ul class="inner-footer">
+                                    <li>Pay Your First Premium</li>
+                                    <li>Pay Renewal Premium</li>
+                                </ul>
+                            </li><br>
+                            <li>Download Statements
+                                <ul class="inner-footer">
+                                    <li>e-Welcome kit/Policy Document</li>
+                                    <li>Tax/Premium Paid Certificate</li>
+                                    <li>Policy/Unit Statement</li>
+                                </ul>
+                            </li><br>
+                            <li>Manage Your Funds
+                                <ul class="inner-footer">
+                                    <li>Check Fund Value</li>
+                                    <li>Switch Funds</li>
+                                    <li>Top Up</li>
+                                </ul>
+                            </li><br>
+                            <li>Update Profile Details
+                                <ul class="inner-footer">
+                                    <li>Update Contact Details</li>
+                                    <li>Update PAN Details</li>
+                                    <li>Update Nominee Details</li>
+                                </ul>
+                            </li><br>
+                            
+                            <li>Tools And Calculators
+                                <ul class="inner-footer">
+                                    <li>Term Insurance Premium Calculator</li>
+                                    <li>Income Tax Calculator</li>
+                                    <li>Power of Compounding Calculator</li>
+                                    <li>EMI Calculator</li>
+                                    <li>Motor Insurance Calculator</li>
+                                    <li>Life Insurance Calculator</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="slds-col">
+                        <div class="open-list">Quick Links</div>
+                        <ul class="footer-list">
+                            <li>Public Disclosure</li><br>
+                            <li>Download Centre</li><br>
+                            <li>Goods and Services Tax Rates 2017</li><br>
+                            <li>Cookie Policy</li><br>
+                            <li>Disclaimer Policy</li><br>
+                            <li>Privacy Policy</li><br>
+                            <li>Terms and Conditions</li><br>
+                            <li>Claims</li><br>
+                            <li>Hospital Network</li><br>
+                            <li>Tax Planning
+                                <ul class="inner-footer">
+                                    <li>ULIPS as a tax saving investment</li>
+                                    <li>Income Tax Slabs & Rates</li>                                            </li>
+                                    <li>How to Save Income Tax</li>
+                                    <li>Tax Saving Life Insurance Plans</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="slds-col">
+                        <div class="open-list">Social Media Links</div>
+                        <ul class="footer-list">
+                            <li>Like Us on Facebook</li><br>
+                            <li>Follow Us on Twitter</li><br>
+                            <li>Follow Us on Instagram</li><br>
+                            <li>Watch Our Videos</li><br>
+                            <li>Connect on LinkedIn</li><br>
+                            <li>Add on Google Plus</li>
+                        </ul>
+                    </div>
+                </div><br/><br/>
+                <div style="font-size: 10px;">
+                    <p>
+                        Insurance Management System Prudential Life Insurance Co. Ltd. All rights reserved. Registered with Insurance Regulatory & 
+                        Development Authority of India (IRDAI) as Life Insurance Company. Regn. No. 105. CIN: L66010MH2000PLC127837.
+                    </p><br/>
+                    <p>
+                        Reg. Off.: Life Insurance System PruLife Towers, 1089 Appasaheb Marathe Marg, Prabhadevi, Mumbai 400025. Tel.: 40391600. 
+                        Customer helpline number - 1860 266 7766. Timings – 10:00 A.M. to 7:00 P.M., Monday to Saturday 
+                        (except national holidays). Member of the Life Insurance Council. For more details on the risk factors, 
+                        term and conditions please read the product brochure carefully before concluding the sale.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </template>
+    </lightning-card>
+    </div>
+    </template>

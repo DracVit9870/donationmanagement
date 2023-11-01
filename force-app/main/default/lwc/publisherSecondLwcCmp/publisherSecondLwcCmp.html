@@ -1,0 +1,29 @@
+<template>
+<lightning-card title="PUBLISHER pass data from LWC to AURA CMP">
+
+<lightning-layout>
+
+<lightning-layout-item size="9" padding="around-small">
+<lightning-input type="search" data-king="sunnn"></lightning-input>
+<template for:each={messageArrayVar} for:item="msg1">
+    <ul key={msg1.id}>
+        <li>{msg1.id}</li>
+        <li> {msg1.msg}</li>
+        <li> {msg1.messageSource}</li>
+    </ul>
+   
+
+  </template>
+
+
+</lightning-layout-item>
+
+<lightning-layout-item size="3" padding="around-small">
+<lightning-button label="Send Message" onclick={sendMsgHandler} icon-name="utility:send" variant="brand"></lightning-button>
+</lightning-layout-item>
+
+</lightning-layout>
+
+
+</lightning-card>
+</template>

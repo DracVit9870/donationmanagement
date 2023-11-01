@@ -1,0 +1,16 @@
+<template>
+<lightning-card title="Screen Flow into LWC component">
+    <lightning-input label="First Name" data-name="firstnm"></lightning-input>
+    <lightning-input label="Last Name" data-name="lastnm"></lightning-input>
+    <lightning-button label="Submit" onclick={submitHandler}></lightning-button>
+
+
+    
+</lightning-card>    
+<lightning-flow
+    flow-api-name="Flow_Into_LWC"
+    flow-input-variables={inputVariables}
+    onstatuschange={handleAccountStatusChange}
+    if:true={showFlow}>
+</lightning-flow>
+</template>

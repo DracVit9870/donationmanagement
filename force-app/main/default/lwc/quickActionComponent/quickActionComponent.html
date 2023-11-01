@@ -1,0 +1,132 @@
+<template>
+    <template if:true={showContacts}>
+     <lightning-quick-action-panel header="Contacts">
+         <div class="parent">
+             <template if:true={listOfRecords}>
+                 <template for:each={listOfRecords} for:item="con">
+                     <div key={con.Id} class="child">
+                         <lightning-card title={con.Name} icon-name="standard:contact">
+                             <div slot="actions">
+                                 <lightning-button-menu alternative-text="Show menu">
+                                     <lightning-menu-item label="Edit" data-id={con.Id} onclick={handleOnEdit}></lightning-menu-item>
+                                     <lightning-menu-item label="Delete" data-id={con.Id} onclick={handleOnDelete}></lightning-menu-item>      
+                                 </lightning-button-menu> 
+                             </div>
+                             <div class="slds-m-around_medium">
+                                 First Name: {con.FirstName}<br/>
+                                 Last Name: {con.LastName}<br/>
+                                 Email: {con.Email}<br/>
+                                 Phone: {con.Phone}                        
+                             </div>
+                         </lightning-card>
+                     </div>            
+                 </template>                
+             </template>
+             <template if:true={infoMessage}>
+                 <div class="slds-align_absolute-center slds-m-around_large">
+                     <b>No related Contacts...</b>
+                 </div>
+             </template>               
+         </div>
+         <div slot="footer">
+             <lightning-button variant="neutral" label="Cancel" name="cancelOne" onclick={handleCancel}></lightning-button>
+         </div>
+     </lightning-quick-action-panel>
+    </template>
+    <template if:true={showEditForm}>
+         <lightning-quick-action-panel header={headerOfEditForm}>
+             <div class="slds-p-aroun_medium">
+                 <lightning-record-edit-form record-id={contactRecord.Id} object-api-name="Contact" onsuccess={handleSuccess}>
+                     <lightning-messages></lightning-messages>
+                     <lightning-layout horizontal-align="space">
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                
+                             <lightning-output-field field-name="OwnerId"></lightning-output-field>                
+                         </lightning-layout-item>
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                   
+                             <lightning-input-field field-name="Phone"> </lightning-input-field>              
+                         </lightning-layout-item>
+                     </lightning-layout>
+                     <lightning-layout horizontal-align="space">
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                
+                             <lightning-input-field field-name="Name"> </lightning-input-field>                  
+                         </lightning-layout-item>
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                   
+                             <lightning-input-field field-name="HomePhone"> </lightning-input-field>                 
+                         </lightning-layout-item>    
+                     </lightning-layout>
+                     <lightning-layout horizontal-align="space">
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                
+                             <lightning-input-field field-name="AccountId"> </lightning-input-field>                  
+                         </lightning-layout-item>
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                   
+                             <lightning-input-field field-name="MobilePhone"> </lightning-input-field>                 
+                         </lightning-layout-item>    
+                     </lightning-layout>
+                     <lightning-layout horizontal-align="space">
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                
+                             <lightning-input-field field-name="Title"> </lightning-input-field>                  
+                         </lightning-layout-item>
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                   
+                             <lightning-input-field field-name="OtherPhone"> </lightning-input-field>                 
+                         </lightning-layout-item>    
+                     </lightning-layout>
+                     <lightning-layout horizontal-align="space">
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                
+                             <lightning-input-field field-name="Department"> </lightning-input-field>                  
+                         </lightning-layout-item>
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                   
+                             <lightning-input-field field-name="Fax"> </lightning-input-field>                 
+                         </lightning-layout-item>    
+                     </lightning-layout>
+                     <lightning-layout horizontal-align="space">
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                
+                             <lightning-input-field field-name="Birthdate"> </lightning-input-field>                  
+                         </lightning-layout-item>
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                   
+                             <lightning-input-field field-name="Email"> </lightning-input-field>                 
+                         </lightning-layout-item>    
+                     </lightning-layout>
+                     <lightning-layout horizontal-align="space">
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                
+                             <lightning-input-field field-name="ReportsToId"> </lightning-input-field>                  
+                         </lightning-layout-item>
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                   
+                             <lightning-input-field field-name="AssistantName"> </lightning-input-field>                 
+                         </lightning-layout-item>    
+                     </lightning-layout>
+                     <lightning-layout horizontal-align="space">
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                
+                             <lightning-input-field field-name="LeadSource"> </lightning-input-field>                  
+                         </lightning-layout-item>
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                   
+                             <lightning-input-field field-name="AssistantPhone"> </lightning-input-field>                 
+                         </lightning-layout-item>    
+                     </lightning-layout>
+                     <lightning-layout horizontal-align="space">
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                
+                             <lightning-input-field field-name="MailingAddress"> </lightning-input-field>                  
+                         </lightning-layout-item>
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                   
+                             <lightning-input-field field-name="OtherAddress"> </lightning-input-field>                 
+                         </lightning-layout-item>    
+                     </lightning-layout>
+                     <lightning-layout horizontal-align="space">
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                
+                             <lightning-input-field field-name="CreatedById"> </lightning-input-field>                  
+                         </lightning-layout-item>
+                         <lightning-layout-item flexibility="auto" size="6" padding="around-small">                   
+                             <lightning-input-field field-name="LastModifiedById"> </lightning-input-field>                 
+                         </lightning-layout-item>    
+                     </lightning-layout>
+                     <lightning-layout horizontal-align="space">
+                         <lightning-input-field field-name="Description"> </lightning-input-field> 
+                     </lightning-layout>
+                 </lightning-record-edit-form>
+             </div>
+             <div slot="footer" class="slds-align_absolute-center">
+                 <lightning-button variant="neutral" label="Cancel" name="cancelTwo" onclick={handleCancel}></lightning-button>
+                 <lightning-button variant="neutral" label="Save" onclick={handleSubmit}></lightning-button>
+             </div>
+         </lightning-quick-action-panel>        
+    </template>
+ </template>

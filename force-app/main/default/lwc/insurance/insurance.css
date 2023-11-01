@@ -1,0 +1,90 @@
+.THIS.hide-title > header.slds-card__header {
+  display: none;
+}
+.Background{
+  background-image:url('/resource/InsuranceImg');
+  background-size: auto;
+  height: 500px;
+}
+.open-list{
+  font-weight: 800;
+  margin-bottom: 30px;
+  margin-top: 0;
+  text-transform: capitalize;
+  font-size: 20px;
+}
+.inner-footer{
+  padding-left : 10px; 
+}
+.footer-list{
+  display: inline-block;
+  font-weight: 600;
+  padding-left: 0;
+  width: 100%;
+}
+.footerrrr{
+  background-color: #04AA6D;
+  color: #fff;
+}
+.withForLoginButoon{
+ 
+  width: 30%;
+  height: 10px;
+ 
+}
+.Backgroundsupport{
+  background-image:url('/resource/support');
+
+ 
+  height:150px;
+   width:200px;
+}
+.withForLoginButoon1{
+ 
+  width: 20%;
+  height: 50px;
+ 
+}
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+.child{
+  direction: flex;
+  padding-left: 50px;
+}
+.cardsize{
+  width: 20px;
+  height: 20px;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}

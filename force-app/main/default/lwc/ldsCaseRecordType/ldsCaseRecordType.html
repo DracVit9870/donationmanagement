@@ -1,0 +1,16 @@
+<template>
+    <lightning-quick-action-panel header="Create Service Request">
+        <div class="slds-p-around_medium">
+            <lightning-record-edit-form object-api-name="Case">
+                <lightning-input-field field-name="Status"></lightning-input-field>
+                <lightning-input-field field-name="Origin"></lightning-input-field>
+                <div class="slds-hidden">
+                    <lightning-input-field field-name="RecordTypeId" value={ProductRecordTypeId.data}></lightning-input-field>
+                </div>
+                <div class="slds-align_absolute-center">
+                    <lightning-button type="submit" label="Save"></lightning-button>
+                </div>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-quick-action-panel>
+</template>

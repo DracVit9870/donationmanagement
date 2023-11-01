@@ -1,0 +1,17 @@
+<template>
+<lightning-card title="PubSub Account To Contact">
+    <lightning-input label="Search" onchange={searchHandler}></lightning-input>
+ 
+    <div style="height: 300px;">
+        <lightning-datatable
+                key-field="id"
+                data={wireshowAccRec.data}
+                columns={columns}
+                max-row-selection="1"
+                onrowselection={rowSelectionHandler}>
+
+        </lightning-datatable>
+    </div> 
+
+</lightning-card>
+</template>

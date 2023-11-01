@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Publisher Customer Records">
+       
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        Policy Holdeer Name
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template iterator:it={custRec.data}>
+                    <tr class="slds-hint-parent" key = {it.value.Id}>
+                        <td data-label="Owner" onclick={handlee} data-id={it.value.Id} key={it.value.Id}>
+                            <div class="slds-cell-wrap">
+                                <a href={it.value.OwnerURL}>
+                                    {it.value.Name}
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </lightning-card>
+</template>

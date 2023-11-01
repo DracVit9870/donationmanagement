@@ -1,0 +1,8 @@
+<template>
+    <lightning-card title="CALLOUT herokuapp">
+        <lightning-button label="CALL" onclick={calloutHandler}></lightning-button>
+        <template for:each={animalVar} for:item="animals">
+            <p key={animals}>{animals}</p>
+        </template>
+        </lightning-card>
+</template>

@@ -1,0 +1,15 @@
+<template>
+    <div>
+        <template if:true={ranger} >
+            <lightning-card>
+
+                <template for:each={contacts} for:item="con">
+                    <p key={con.Id}><b>{con.LastName}</b></p>
+                    <p key={con.Id}><b>{con.Email}</b></p>
+                  
+                </template>
+           
+            </lightning-card>
+        </template>
+    </div>
+</template>

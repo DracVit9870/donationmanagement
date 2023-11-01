@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Agent" icon-name="standard:account">
+
+    <div class="slds-m-around_medium">
+
+    <lightning-layout multiple-rows>
+
+    <lightning-layout-item size="6" padding="around-small">
+    <lightning-input type="search" label="Search Agent" onchange={handleSearch}></lightning-input>
+    </lightning-layout-item>
+
+    </lightning-layout>
+
+    <template if:true={data}>
+    <lightning-datatable key-field="Id" data={data} columns={columns} max-row-selection="2"
+    onrowselection={getSelectedName}></lightning-datatable>
+    </template>
+
+    <template if:true={error}>
+    {error}>
+    </template>
+
+    </div>
+    </lightning-card>
+    </template>

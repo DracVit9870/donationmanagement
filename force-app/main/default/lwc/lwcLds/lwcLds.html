@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Create Account using Lds form" >
+        <lightning-layout>
+
+            <lightning-layout-item size="6" padding="arrount-small">
+                <lightning-input label="Name" onchange={NamechangeHandler}></lightning-input>
+                <lightning-input label="Phone" onchange={PhonechangeHandler}></lightning-input>
+                <lightning-input label="Industry" onchange={IndustrychangeHandler}></lightning-input>
+                <lightning-button label="Create Account" variant="brand" onclick={CreateAccounthandler}></lightning-button>
+
+            </lightning-layout-item>
+            <lightning-card title="view account">
+            <lightning-layout>
+                <lightning-layout-item size="6" padding="arrount-small">
+                    <template if:true={showAccount}>
+                   
+                    <p><lightning-formatted-text value={AccountRec.data.fields.Name.value} ></lightning-formatted-text></p>
+                    <p><lightning-formatted-text value={AccountRec.data.fields.Phone.value} ></lightning-formatted-text></p>
+                    <p><lightning-formatted-text value={AccountRec.data.fields.Industry.value}></lightning-formatted-text></p>
+                
+            </template>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-card>
+        </lightning-layout>
+    </lightning-card>
+</template>

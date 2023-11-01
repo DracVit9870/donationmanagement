@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Acount Datatable"> 
+        <lightning-input data-king="nameVar" label="Search Record" onchange={searchHandler}></lightning-input>
+        <template if:true={gotRecord.data}>
+            <lightning-datatable
+            key-field="id"
+            data={gotRecord.data}
+            columns={columns}
+            hide-checkbox-column="true"
+            show-row-number-column="true"
+            onrowaction={handleRowAction}>
+    </lightning-datatable>
+        </template>
+
+        
+        
+
+       
+    </lightning-card>
+</template>

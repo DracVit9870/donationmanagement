@@ -1,0 +1,14 @@
+<template>
+<div>
+    <lightning-input label="Enter Name" data-recid="Sun"></lightning-input>
+    <lightning-input label="Enter Age" data-recid="Mon"></lightning-input>
+    <lightning-button label="Add Student" onclick={addStudentHandler}></lightning-button>
+</div>
+<template for:each={students} for:item="std">
+    <p key={std.Name}>
+        <c-nws-child student={std} ></c-nws-child>
+    </p>
+    
+
+</template>
+</template>

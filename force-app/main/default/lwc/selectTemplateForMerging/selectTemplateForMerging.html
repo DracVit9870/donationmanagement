@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Radio Group in LWC">
+        <div style="margin-left:3%;">
+            <lightning-radio-group label="Account Type" 
+                                    name="radioButtonGroup" 
+                                    onchange={handleChange} 
+                                    options={options}
+                                    value={selectedValue}
+                                    type="radio"></lightning-radio-group>
+        
+            <br/>
+            <div if:true={selectedValue}>
+                Selected Vlaue: <b>{selectedValue}</b>
+            </div>
+        </div>
+
+    </lightning-card>
+</template>

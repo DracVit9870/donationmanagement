@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="POLICY HOLDER INFORMATION">
+        <lightning-input label="ENTER POLICY ID" data-king=client></lightning-input>
+        <lightning-button label="ENTER" variant="success" onclick={searchHandler}></lightning-button>
+        <template for:each={poldata} for:item="pol">
+            <p key={pol.Id}><b>Name                          :</b>{pol.Name}</p>
+            <p key={pol.Id}><b>Email                        :</b>{pol.Email__c}</p>
+            <p  key={pol.Id}><b>Phone                      :</b>{pol.Phone__c}</p>
+            <p  key={pol.Id}><b>DOB                          :</b>{pol.DOB__c}</p>
+            <p  key={pol.Id}><b>Gender                    :</b>{pol.Gender__c}</p>
+            <p  key={pol.Id}><b>Occupation            :</b>{pol.Occupation__c}</p>
+            <p  key={pol.Id}><b>Annual Income      :</b>{pol.Income_Per_Annum__c}</p>
+            <p  key={pol.Id}><b>Address                  :</b>{pol.Address__c}</p>
+            <p  key={pol.Id}><b>Agent Name            :</b>{pol.Agent_name__c}</p>
+            <p  key={pol.Id}><b>CreatedDate          :</b>{pol.CreatedDate}</p>
+            <p key={pol.Id}><b>LastModifiedDate  :</b>{pol.LastModifiedDate}</p>
+        </template>
+    </lightning-card>
+</template>

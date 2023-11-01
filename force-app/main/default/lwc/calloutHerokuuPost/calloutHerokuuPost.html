@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="POST method in HEROKUU">
+<lightning-input data-animal="aaa" label="Animal name" placeholder="ENTER ANIMAL NAME"></lightning-input>
+<lightning-button label="Submit" variant="success" onclick={submitNameHandler}></lightning-button>
+<template for:each={animalVar} for:item="animals">
+    <p key={animals}>{animals}</p>
+</template>
+</lightning-card>
+</template>

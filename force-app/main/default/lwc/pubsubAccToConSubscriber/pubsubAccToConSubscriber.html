@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Contacts">
+        <div class="slds-m-around_medium">
+            <template if:true={contactRecords}>
+                <template for:each={contactRecords} for:item="con">
+                    <lightning-card  key={con.Id}>
+                        <li>CONTACT NAME :{con.Name}</li>
+                        <li>CONTACT PHONE :{con.Phone}</li>
+                        <li>CONTACT FAX :{con.Fax}</li>
+                        <li>CONTACT EMAIL :{con.Email}</li>
+                        <li>ACCOUNT accountid :{con.AccountId}</li>
+    
+                    </lightning-card>
+                  
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

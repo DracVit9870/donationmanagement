@@ -1,0 +1,85 @@
+<template>
+    <lightning-card title="Custom Account Search">
+        <lightning-layout multiple-rows="true" vertical-align="end">
+            <lightning-layout-item size="4" padding="around-small">
+                 <!--Input text to Search Account-->
+                <lightning-input type="text" label="Enter Account Name To Search"
+                    value={searchKey} 
+                    onchange={handelSearchKey}> 
+                </lightning-input>
+            </lightning-layout-item >
+
+            <lightning-layout-item size="2" padding="around-small">
+                <!--Search Button-->
+                <lightning-button label="Search" variant="brand" onclick={SearchAccountHandler}>
+
+                </lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" padding="around-small">
+                <!--List Of Account Using data Tabel-->
+                <lightning-layout vertical-align="start">
+                    <lightning-layout-item padding="around-small" size="6">
+                <lightning-card title="Agent Persional Details" icon-name="custom:custom63">
+                    <div class="slds-m-around_medium">
+                        <template if:true={accounts}>
+                            <template for:each={accounts} for:item="acc">
+                                <p key={acc.Id}><b>Agent ID :        {acc.Id}</b></p>
+                                <p key={acc.Id}><b>Agent Name :      {acc.Name}</b></p>
+                                <p key={acc.Id}><b>Agent ID :        {acc.Agent_ID__c}</b></p>
+                                <p key={acc.Id}><b>Agent DOB :       {acc.DOB__c}</b></p>
+                                <p key={acc.Id}><b>Phone :           {acc.Phone__c}</b></p>
+                                <p key={acc.Id}><b>Email :           {acc.Email__c}</b></p>
+                                <p key={acc.Id}><b>Registaion Date : {acc.Reg_Date__c}</b></p>
+                                <p key={acc.Id}><b>Address :         {acc.Address__c}</b></p>
+                                <p key={acc.Id}><b>Agent UserName :  {acc.AgentUserName__c}</b></p>
+                            </template>
+                        </template>
+                    </div>
+                </lightning-card>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="6">
+                <lightning-card title="Lightning Datatable Example">
+                    <div class="slds-m-around_medium">
+                        <lightning-datatable 
+                            data-id="table" 
+                            key-field="Id" 
+                            data={data} 
+                            columns={columns} 
+                            sorted-by={sortedBy}
+                            sorted-direction={sortedDirection} 
+                            onrowselection ={onRowSelection} 
+                            selected-rows={allSelectedRows} 
+                            onsort={sortColumns}>
+                       </lightning-datatable>
+                 
+            
+                        <lightning-layout horizontal-align="space">
+                            <lightning-layout-item flexibility="auto">
+                                <lightning-button 
+                                    label="Previous" 
+                                    icon-name="utility:chevronleft" 
+                                    onclick={previousHandler}>
+                                </lightning-button>
+                            </lightning-layout-item>
+                            <lightning-layout-item flexibility="auto">
+                                Page {page} of {totalPage}
+                            </lightning-layout-item>
+                            <lightning-layout-item flexibility="auto">
+                                <lightning-button 
+                                    label="Next" 
+                                    icon-name="utility:chevronright" 
+                                    icon-position="right"
+                                    onclick={nextHandler}>
+                                </lightning-button>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                </lightning-card>
+            </lightning-layout-item>
+        </lightning-layout>
+
+
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template> 

@@ -1,0 +1,34 @@
+<template>
+<lightning-card>
+<c-input-acc-rec-child onmycustomevent={handleCustomEvent}></c-input-acc-rec-child>
+
+<!-- <div style="height: 300px;">
+    <lightning-datatable
+            key-field="id"
+            data={wireshowAccRec.data}
+            columns={columns}>
+    </lightning-datatable>
+</div>   -->
+
+<ul class="slds-m-around_medium">
+
+    <template for:each={wireshowAccRec.data} for:item="acc">
+<lightning-card class="slds-card__body slds-card__body_inner" key={acc.Id}>
+
+  <p>
+    Account Name : {acc.Name}
+  </p>
+  <p>
+  Account Industry :  {acc.Industry}
+  </p>
+
+</lightning-card>
+
+     
+
+  </template>
+
+  
+</ul>
+</lightning-card>
+</template>

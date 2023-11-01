@@ -1,0 +1,78 @@
+<template>
+
+    <template if:true={MainButtonShow}>
+ <lightning-button label="Policy Holder Info." variant="success" onclick={PolicyHandler}></lightning-button>
+ <lightning-button label="Agent Info." variant="success" onclick={AgentHandler}></lightning-button>
+ <lightning-button label="Life Insurance Info." variant="success" onclick={LifeInsuranceHandler}></lightning-button>
+ <lightning-button label="Motor Insurance Info." variant="success" onclick={MotorInsuranceHandler}></lightning-button>
+</template>
+
+ <!-- POLICY HOLDER -->
+ <template if:true={PolicythreeButtonShow}>
+    <lightning-button label="Create Record" variant="destructive" onclick={PolicyCreateRecordHandler}></lightning-button>
+    <lightning-button label="View Record" variant="destructive" onclick={PolicyViewRecordHandler}></lightning-button>
+    <lightning-button label="Cancel" variant="destructive" onclick={PolicyCancelHandler}></lightning-button>
+
+    <template if:true={PolicycreateRecShow}>
+    <c-insurance-create-record-policy></c-insurance-create-record-policy>
+    </template>
+
+    <template if:true={PolicyDatatableShow}>
+        <c-html-tab-polyholder></c-html-tab-polyholder>
+    </template>
+    
+    </template>
+
+
+
+
+ <!-- AGENT -->
+ <template if:true={AgentthreeButtonShow}>
+    <lightning-button label="Create Record" variant="brand-outline" onclick={AgentCreateRecordHandler}></lightning-button>
+    <lightning-button label="View Record" variant="brand-outline" onclick={AgentViewRecordHandler}></lightning-button>
+    <lightning-button label="Cancel" variant="brand-outline" onclick={AgentCancelHandler}></lightning-button>
+
+    <template if:true={AgentcreateRecShow}>
+        <c-insurance-create-record-agent></c-insurance-create-record-agent>
+    </template>
+
+    <template if:true={AgentDatatableShow}>
+        <c-html-tab-agent></c-html-tab-agent>
+    </template>
+
+ </template>
+
+
+ <!-- INSURANCE MANAGEMENT -->
+ <template if:true={InsurancethreeButtonShow}>
+    <lightning-button label="Create Record" variant="brand" onclick={InsuranceCreateRecordHandler}></lightning-button>
+    <lightning-button label="View Record" variant="brand" onclick={InsuranceViewRecordHandler}></lightning-button>
+    <lightning-button label="Cancel" variant="brand" onclick={InsuranceCancelHandler}></lightning-button>
+
+    <template if:true={InsurancecreateRecShow}>
+        <c-insurance-create-record-life-ins></c-insurance-create-record-life-ins>
+    </template>
+
+    <template if:true={InsuranceDatatableShow}>
+        <c-html-tab-life-insurance></c-html-tab-life-insurance>
+    </template>
+
+ </template>
+
+<!-- MOTOR MANAGEMENT -->
+ <template if:true={MotorthreeButtonShow}>
+    <lightning-button label="Create Record" variant="Neutral" onclick={MotorCreateRecordHandler}></lightning-button>
+    <lightning-button label="View Record" variant="Neutral" onclick={MotorViewRecordHandler}></lightning-button>
+    <lightning-button label="Cancel" variant="Neutral" onclick={MotorCancelHandler}></lightning-button>
+
+    <template if:true={MotorcreateRecShow}>
+        <c-insurance-create-record-motor-ins></c-insurance-create-record-motor-ins>
+    </template>
+
+    <template if:true={MotorDatatableShow}>
+        <c-html-tab-motor-insurance></c-html-tab-motor-insurance>
+    </template>
+
+</template>
+ 
+</template>

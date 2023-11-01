@@ -1,0 +1,9 @@
+.marquee{
+    width: auto;
+    line-height: 50px;
+    color: #434345;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: white;
+}

@@ -1,0 +1,19 @@
+<template>
+<lightning-card>
+    <lightning-input label="name" onchange={myName}></lightning-input>
+
+
+   
+
+
+        <div style="height: 300px;">
+            <lightning-datatable 
+                    key-field="id"
+                    data={wiredretriveAccount.data}
+                    columns={columns}>
+            </lightning-datatable>
+        </div>
+
+</lightning-card>
+
+</template>

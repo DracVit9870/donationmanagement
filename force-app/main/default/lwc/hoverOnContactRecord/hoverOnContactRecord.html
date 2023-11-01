@@ -1,0 +1,107 @@
+<template>
+  <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+    <thead>
+      <tr class="slds-line-height_reset">
+          <th class="slds-cell-buffer_right" scope="col">
+              <div class="slds-truncate" title="Contact LastName">Contact LastName</div>
+          </th>
+          <th class="slds-cell-buffer_right" scope="col">
+              <div class="slds-truncate" title="Account Name">Account Name</div>
+          </th>
+          <th class="slds-cell-buffer_right" scope="col">
+            <div class="slds-truncate" title="Email">Email</div>
+        </th>
+        <th class="slds-cell-buffer_right" scope="col">
+          <div class="slds-truncate" title="Send Email">Send Email</div>
+      </th>
+      </tr>
+  </thead>
+
+
+      <tbody>
+      <template if:true={bears.data}>
+          
+              <template  for:each={bears.data} for:item="bear" for:index="index">
+
+                  <tr class={assignClass} key={bear.Id} data-rangerid={bear.AccountId} onmouseout={hideData} onmouseover={showData}>
+
+
+                      <td data-label="Bear Name" class="slds-cell-buffer_right">
+                          <div class=slds-truncate title="Contact LastName">{bear.LastName}</div>
+                      </td>
+                      
+                      <td data-label="Bear Age" class="slds-cell-buffer_right">
+                        <div class="slds-truncate" title="Email">{bear.Email}</div>
+                    </td>
+                    <td>
+                      <div>
+                        <lightning-button variant="brand" label="SEND" title="Send Email" onclick={showModalBox} class="slds-m-left_x-small" ></lightning-button> <!-- Added the data-index attribute here to use in JS. -->
+                      </div>
+                    </td>
+
+                      
+                  </tr>
+
+                  </template>
+              
+      </template>
+      </tbody>
+  </table>
+
+
+ <!-- modal start -->      
+ <template if:true={isShowModal}>
+
+  
+
+<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+<div class="slds-modal__container">
+<!-- modal header start -->
+<header class="slds-modal__header">
+   <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideModalBox}>
+      <lightning-icon icon-name="utility:close"
+         alternative-text="close"
+         variant="inverse"
+         size="small" ></lightning-icon>
+      <span class="slds-assistive-text">Close</span>
+   </button>
+   <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Send Email To The Customer</h2>
+</header>
+
+<!-- modal body start -->
+<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+      <p>
+        <lightning-card>
+          <lightning-input label="Email"></lightning-input>
+          <lightning-input label="To"></lightning-input>
+          <lightning-input label="CC"></lightning-input>
+          <lightning-input label="Subject"></lightning-input>
+          <lightning-input-rich-text
+          placeholder="Type something interesting"
+          value={myVal}
+          disabled-categories="FORMAT_TEXT"
+      >
+      </lightning-input-rich-text>
+        </lightning-card>
+      </p>
+</div>
+
+<!-- modal footer start-->
+<footer class="slds-modal__footer">
+   <button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+</footer>
+
+</div>
+</section>
+<div class="slds-backdrop slds-backdrop_open"></div>
+</template>
+<!-- modal end -->
+
+
+
+
+
+
+  <c-hover-pop-up  myranger={ranger}></c-hover-pop-up>
+
+</template>

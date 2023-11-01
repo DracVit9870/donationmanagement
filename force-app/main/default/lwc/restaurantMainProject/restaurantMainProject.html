@@ -1,0 +1,105 @@
+<template>
+
+  <template if:true={showMenuItem}>
+
+    <div class="row">
+      <div class="column" onclick={menuHandler} data-msg="pizza">
+        PIZZA<p></p> 
+        <img src={pizzaImg}></img>
+      </div>
+      <div class="column" onclick={menuHandler} data-msg="biryani">
+        BIRYANI<p></p>
+        <img src={biryaniImg}></img>
+      </div>
+      <div class="column" onclick={menuHandler} data-msg="pizza">
+        PIZZA<p></p> 
+        <img src={pizzaImg}></img>
+      </div>
+      <div class="column" onclick={menuHandler} data-msg="biryani">
+        BIRYANI<p></p>
+        <img src={biryaniImg}></img>
+      </div>
+      <div class="column">
+        Pizza<p></p> 
+        <img src={pizzaImg}></img>
+      </div>
+      <div class="column">
+        BIRYANI<p></p>
+        <img src={biryaniImg}></img>
+      </div>
+      <div class="column">
+        Pizza<p></p> 
+        <img src={pizzaImg}></img>
+      </div>
+      <div class="column">
+        BIRYANI<p></p>
+        <img src={biryaniImg}></img>
+      </div>
+    </div>
+
+  </template>
+      
+  <template for:each={getMenuFromApex} for:item="menu">
+    <lightning-card key={menu.id}>
+
+      <b>NAME</b> :{menu.Name}<p></p>
+      <b>Contain egg</b> :{menu.Contain_egg__c}<p></p>
+      <b>Spice level</b> :{menu.Spice_level__c}<p></p>
+      <lightning-radio-group 
+      label="Select size"
+      options={options}
+      value={value}
+      required
+      type="button"
+      onchange={handleRadioChange}></lightning-radio-group>
+      <b>FULL</b> :{fullSize}<p></p>
+      <b>HALF</b> :{halfSize}<p></p>
+      <b>Food image</b> :<lightning-formatted-rich-text value={menu.Food_image__c}></lightning-formatted-rich-text><p></p>
+      <lightning-button label="ADD" variant="success" onclick={addHandler}></lightning-button>
+
+    </lightning-card>
+                                     
+  </template>   
+  
+  <!-- modal start -->      
+  <template if:true={isShowModal}>
+
+    <!--
+        I Used SLDS for this code
+        Here is link https://www.lightningdesignsystem.com/components/modals/
+    --> 
+
+<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+<div class="slds-modal__container">
+<!-- modal header start -->
+  <header class="slds-modal__header">
+     <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideModalBox}>
+        <lightning-icon icon-name="utility:close"
+           alternative-text="close"
+           variant="inverse"
+           size="small" ></lightning-icon>
+        <span class="slds-assistive-text">Close</span>
+     </button>
+     <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Welcome in Apex Hours</h2>
+  </header>
+
+  <!-- modal body start -->
+  <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+
+   
+  </div>
+
+  <!-- modal footer start-->
+  <footer class="slds-modal__footer">
+     <button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+  </footer>
+
+</div>
+</section>
+<div class="slds-backdrop slds-backdrop_open"></div>
+</template>
+<!-- modal end -->
+
+
+</template>

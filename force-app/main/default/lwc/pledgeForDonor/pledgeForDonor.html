@@ -1,0 +1,19 @@
+<template>
+    <div class="slds-align_absolute-center">
+
+        <div style="width: 300px; height:800px; border:1px solid black;">
+    
+            <div class="slds-text-heading_large slds-text-align_center">
+    
+                <b>Registration Form</b>
+    
+            </div>
+    
+         
+    
+        <lightning-record-form object-api-name={Pledges__c} fields={myFields} onsuccess={handleOnSuccess}>
+        </lightning-record-form>
+   
+    </div>
+</div>
+</template>

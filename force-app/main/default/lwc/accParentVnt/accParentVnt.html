@@ -1,0 +1,12 @@
+<template>
+<lightning-card title="Create Opportunity Record">
+<lightning-input label="Name" onchange={nameHandler}></lightning-input>
+<lightning-input label="StageName" onchange={stageNameHandler}></lightning-input>
+<lightning-input label="Amount" onchange={amountHandler}></lightning-input>
+<lightning-input type="date" label="CloseDate " onchange={closeDateHandler}></lightning-input>
+
+<lightning-button label="Create" onclick={createHandler}></lightning-button>
+<lightning-button label="Cancel" onclick={cancelHandler}></lightning-button>
+<c-opp-child-vnt onhiparent={displaychld}></c-opp-child-vnt>
+</lightning-card>    
+</template> 

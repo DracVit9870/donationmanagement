@@ -1,0 +1,94 @@
+<template>
+    <lightning-card >
+        <div class="marquee">
+            <p>
+                <marquee width="100%" direction="left" height="100px">
+                <font size="+3"><b>Welcome To Insurance Management System</b></font>
+                </marquee>
+            </p>
+        </div>
+        <lightning-layout multiple-rows="true" vertical-align="end">
+            <lightning-layout-item size="4" padding="around-small">
+                 <!--Input text to Search Account-->
+                <lightning-input type="text" label="Enter Account Name To Search"
+                    value={searchKey} 
+                    onchange={handelSearchKey}> 
+                </lightning-input>
+            </lightning-layout-item >
+
+            <lightning-layout-item size="2" padding="around-small">
+                <!--Search Button-->
+                <lightning-button label="Search" variant="brand" onclick={SearchAccountHandler}>
+
+                </lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" padding="around-small">
+                <!--List Of Account Using data Tabel-->
+                <lightning-layout vertical-align="start">
+                    <lightning-layout-item padding="around-small" size="6">
+                <lightning-card title="Agent Persional Details" icon-name="custom:custom63">
+                    <div class="slds-m-around_medium">
+                        <template if:true={accounts}>
+                            <template for:each={accounts} for:item="acc">
+                               
+                                <p key={acc.Id}><b>Agent Name :</b>      {acc.Name}</p>
+                                <p key={acc.Id}><b>Phone :</b>       {acc.Phone__c}</p>
+                                <p key={acc.Id}><b>Email :</b>           {acc.Email__c}</p>
+                                <p key={acc.Id}><b>Gender :</b>           {acc.Gender__c}</p>
+                                <p key={acc.Id}><b>Occupation :</b> {acc.Occupation__c}</p>
+                                <p key={acc.Id}><b>DOB :</b>         {acc.DOB__c}</p>
+                                <p key={acc.Id}><b>Address :</b>         {acc.Address__c}</p>
+                                <p key={acc.Id}><b>Register Date :</b>         {acc.Reg_Date__c}</p>
+                                <p key={acc.Id}><b>CreatedDate :</b>         {acc.CreatedDate}</p>
+                                
+                            </template>
+                        </template>
+                    </div>
+                </lightning-card>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="6">
+                <lightning-card title="Related Policy Holder">
+                    <div class="slds-m-around_medium">
+                        <lightning-datatable 
+                            data-id="table" 
+                            key-field="Id" 
+                            data={data} 
+                            columns={columns} 
+                            sorted-by={sortedBy}
+                            sorted-direction={sortedDirection} 
+                            onrowselection ={onRowSelection} 
+                            selected-rows={allSelectedRows} 
+                            onsort={sortColumns}>
+                       </lightning-datatable>
+                 
+            
+                        <lightning-layout horizontal-align="space">
+                            <lightning-layout-item flexibility="auto">
+                                <lightning-button 
+                                    label="Previous" 
+                                    icon-name="utility:chevronleft" 
+                                    onclick={previousHandler}>
+                                </lightning-button>
+                            </lightning-layout-item>
+                            <lightning-layout-item flexibility="auto">
+                                Page {page} of {totalPage}
+                            </lightning-layout-item>
+                            <lightning-layout-item flexibility="auto">
+                                <lightning-button 
+                                    label="Next" 
+                                    icon-name="utility:chevronright" 
+                                    icon-position="right"
+                                    onclick={nextHandler}>
+                                </lightning-button>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                </lightning-card>
+            </lightning-layout-item>
+        </lightning-layout>
+
+
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template> 

@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Subscriber Watch Record Info.">
+        <div class="slds-m-around_medium">
+            <template if:true={watchRecord}>
+                <template for:each={watchRecord} for:item="wat">
+                    <lightning-card  key={wat.Id}>
+                        <li>Watch NAME :{wat.Name}</li>
+                        <li>Case Material :{wat.case_material__c}</li>
+                        <li>Price :{wat.price__c}</li>
+                        <li>Watch strap :{wat.watch_strap__c}</li>
+                        <li>
+                            
+                            <lightning-formatted-rich-text value={wat.WatchImg__c}></lightning-formatted-rich-text>
+                        </li>
+
+    
+                    </lightning-card>
+                  
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>
